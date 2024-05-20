@@ -1,4 +1,4 @@
-Simple anki addon that reads and writes addon configs to the media folder.
+Currently, this is a very simple addon that reads and writes addon configs to the media folder.
 
 Adds the following new menu:
 Main window > Tools -> Sync Addon Configs
@@ -13,4 +13,6 @@ How to use:
 5. Configs in device B should now match what was on device A, assuming they have all the same addons.
 
 BEWARE
-- Accidentally clicking Read Configs instead of Save Configs will overwrite your current edited configs. A proper syncing system should remove this shortfall.
+
+- As you are about to save your recently edited configs for syncing to another device, accidentally clicking Read
+  Configs instead will overwrite your current edits... A proper syncing system should remove this shortfall (TODO soon)
