@@ -17,12 +17,13 @@ def saveConfigs():
         dest_file = media_path / f"_{addon_dir.name}_meta.json"
 
         if meta_json.is_file():
-            # If the destination media file doesn't exist, we can just go ahead and copy the meta.json there
-            if not dest_file.is_file():
+            # If the destination media file doesn't exist, or the meta.json file has changed,
+            # copy the meta.json file to the media folder
+            if not dest_file.is_file() or not filecmp.cmp(meta_json, dest_file, False):
                 shutil.copy(meta_json, dest_file)
-            # If it does exist, compare the two files and copy only when they differ
-            elif not filecmp.cmp(meta_json, dest_file, False):
-                shutil.copy(meta_json, dest_file)
+                # Just copying the file doesn't seem to trigger Anki to sync it, so rename it and then rename it back
+                dest_file.rename(dest_file.with_suffix('.temp'))
+                dest_file.with_suffix('.temp').rename(dest_file)
 
 
 def readConfigs(media_sync_status):
