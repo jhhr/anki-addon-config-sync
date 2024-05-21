@@ -43,5 +43,5 @@ def readConfigs(media_sync_status):
         # do we have a dest file that differs from the current meta.json file?
         if dest_file.is_file():
             if not meta_json.is_file() or not filecmp.cmp(meta_json, dest_file, False):
-            # The files don't match, so copy the dest file to the meta.json
-            shutil.copy(dest_file, meta_json)
+                # The files don't match, so copy the dest file to the meta.json
+                shutil.copy(dest_file, meta_json)
