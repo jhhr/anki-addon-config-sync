@@ -1,4 +1,5 @@
 import filecmp
+import os
 import shutil
 from pathlib import Path
 
@@ -19,11 +20,12 @@ def saveConfigs():
         if meta_json.is_file():
             # If the destination media file doesn't exist, or the meta.json file has changed,
             # copy the meta.json file to the media folder
-            if not dest_file.is_file() or not filecmp.cmp(meta_json, dest_file, False):
+            if not dest_file.is_file():
                 shutil.copy(meta_json, dest_file)
-                # Just copying the file doesn't seem to trigger Anki to sync it, so rename it and then rename it back
-                dest_file.rename(dest_file.with_suffix('.temp'))
-                dest_file.with_suffix('.temp').rename(dest_file)
+            elif not filecmp.cmp(meta_json, dest_file, False):
+                # To trigger Anki to sync the file, remove the old one and copy the new one
+                os.remove(dest_file)
+                shutil.copy(meta_json, dest_file)
 
 
 def readConfigs(media_sync_status):
