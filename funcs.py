@@ -40,7 +40,8 @@ def readConfigs(media_sync_status):
         meta_json = addon_dir / "meta.json"
         dest_file = media_path / f"_{addon_dir.name}_meta.json"
 
-        # do we have a dest file that differs from the temp file?
-        if dest_file.is_file() and not filecmp.cmp(meta_json, dest_file, False):
+        # do we have a dest file that differs from the current meta.json file?
+        if dest_file.is_file():
+            if not meta_json.is_file() or not filecmp.cmp(meta_json, dest_file, False):
             # The files don't match, so copy the dest file to the meta.json
             shutil.copy(dest_file, meta_json)
