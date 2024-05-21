@@ -1,18 +1,22 @@
-Currently, this is a very simple addon that reads and writes addon configs to the media folder.
+This addon will save and load your current addon configs into Anki's media files folder.
+Saving and loading is done on syncing.
 
-Adds the following new menu:
-Main window > Tools -> Sync Addon Configs
-- Save Configs: writes all current addon configs into files in the media folder.
-- Read Configs: reads all addon configs from files in the media folder and overwrites current addon configs.
+# How to use
 
-How to use:
-1. Save configs on device A
+1. Edit configs on device A
 2. Sync on device A
-3. Sync on device B
-4. Read configs on device B
-5. Configs in device B should now match what was on device A, assuming they have all the same addons.
+3. Sync on device B. Restarting Anki may be required for addons to load the new configs.
 
-BEWARE
+## Conflicting changes
 
-- As you are about to save your recently edited configs for syncing to another device, accidentally clicking Read
-  Configs instead will overwrite your current edits... A proper syncing system should remove this shortfall (TODO soon)
+If you
+
+1. Edit configs on device A
+2. Edit configs on device B
+3. Sync on device A
+4. Sync on device B
+
+Then the first to sync and upload the changes to AnkiWeb wins = device A's configs overwrite device B's.
+
+It appears that changes to a media file in AnkiWeb trumps not yet uploaded changes to the same media file which is why
+the first to sync wins.
