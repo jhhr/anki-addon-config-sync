@@ -10,7 +10,7 @@ Saving and loading is done on syncing.
 
 ## Conflicting changes
 
-In a nutshell, **the first device to sync to AnkiWeb** is the one who's addon config edits will overwrite conflicting configs when syncing on other devices. 
+In a nutshell, **the first device to sync to AnkiWeb** is the one whose addon config edits will overwrite conflicting configs when syncing on other devices. 
 It appears that changes to a media file in AnkiWeb trumps not yet uploaded changes to the same media file which is why the first to sync wins.
 
 In more detail:
