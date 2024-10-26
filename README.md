@@ -5,18 +5,24 @@ Saving and loading is done on syncing.
 
 1. Edit configs on device A
 2. Sync on device A
-3. Sync on device B. Restarting Anki may be required for addons to load the new configs.
+3. Sync on device B.
+ - Some addons will require restarting Anki for them to load the new configs.
 
 ## Conflicting changes
 
-If you
+In a nutshell, **the first device to sync to AnkiWeb** is the one who's addon config edits will overwrite conflicting configs when syncing on other devices. 
+It appears that changes to a media file in AnkiWeb trumps not yet uploaded changes to the same media file which is why the first to sync wins.
 
-1. Edit configs on device A
-2. Edit configs on device B
-3. Sync on device A
-4. Sync on device B
+In more detail:
 
-Then the first to sync and upload the changes to AnkiWeb wins = device A's configs overwrite device B's.
+1. Edit configs on device A without syncing.
+2. Edit configs on device B without syncing.
 
-It appears that changes to a media file in AnkiWeb trumps not yet uploaded changes to the same media file which is why
-the first to sync wins.
+Device A and B now have conflicting changes.
+
+3. Sync on device A. Edited configs files are uploaded to AnkiWeb
+4. Sync on device B. Config files are downloaded from Ankiweb, overwriting conflicting edits on device B
+
+### Recommendation
+
+Immediately after editing configs on one device, sync on that device and then sync on your other devices.
