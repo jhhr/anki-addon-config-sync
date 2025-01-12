@@ -19,7 +19,7 @@ def saveConfigs():
     :return:
     """
     anki_addons_path = Path(mw.pm.addonFolder()).resolve(strict=True)
-    media_path = Path(mw.pm.profileFolder(), 'collection.media')
+    media_path = Path(mw.pm.profileFolder(), "collection.media")
 
     for addon_dir in anki_addons_path.iterdir():
         if not addon_dir.is_dir():
@@ -46,12 +46,13 @@ def readConfigs(media_sync_status: bool):
     Changes made in AnkiWeb will have been downloaded to the media folder,
     and those are then copied to the addon folder.
     """
-    # If media_sync_status is True, then media sync is still in progress, and we should not read the configs yet
+    # If media_sync_status is True, then media sync is still in progress, and we should not read
+    # the configs yet
     if media_sync_status is True:
         return
 
     anki_addons_path = Path(mw.pm.addonFolder()).resolve(strict=True)
-    media_path = Path(mw.pm.profileFolder(), 'collection.media')
+    media_path = Path(mw.pm.profileFolder(), "collection.media")
 
     for addon_dir in anki_addons_path.iterdir():
         if not addon_dir.is_dir():
