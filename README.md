@@ -1,3 +1,9 @@
+# NOTICE
+
+This code has moved to my monorepo for Anki addons: https://github.com/jhhr/anki_addons
+
+---
+
 # Addon Config Sync
 
 Sync add-on `meta.json` configs across devices by storing copies in Anki's media folder and syncing those through AnkiWeb.
